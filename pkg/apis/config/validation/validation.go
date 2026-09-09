@@ -14,10 +14,9 @@ import (
 func ValidateConfiguration(cfg *config.Configuration) field.ErrorList {
 	allErrs := field.ErrorList{}
 
-	if cfg.BaseDikiOptions != nil {
-		fldPath := field.NewPath("baseDikiOptions")
-		if len(cfg.BaseDikiOptions.Data) == 0 {
-			allErrs = append(allErrs, field.Required(fldPath.Child("data"), "data must not be empty when baseDikiOptions is specified"))
+	if cfg.BaseDikiConfig != nil {
+		if len(*cfg.BaseDikiConfig) == 0 {
+			allErrs = append(allErrs, field.Required(field.NewPath("baseDikiConfig"), "must not be empty when specified"))
 		}
 	}
 

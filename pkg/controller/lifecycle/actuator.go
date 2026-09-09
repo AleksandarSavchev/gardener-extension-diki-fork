@@ -179,8 +179,8 @@ func (a *actuator) newComponent(namespace string, cluster *extensions.Cluster, r
 	}
 
 	var baseDikiOptionsData string
-	if a.config.BaseDikiOptions != nil && len(a.config.BaseDikiOptions.Data) != 0 {
-		baseDikiOptionsData = a.config.BaseDikiOptions.Data
+	if a.config.BaseDikiConfig != nil && len(*a.config.BaseDikiConfig) != 0 {
+		baseDikiOptionsData = *a.config.BaseDikiConfig
 	}
 
 	return dikioperator.New(a.client, dikioperator.Values{

@@ -14,13 +14,7 @@ import (
 type Configuration struct {
 	metav1.TypeMeta
 
-	// BaseDikiOptions holds the base diki options configuration.
+	// BaseDikiConfig is the YAML content for base diki options.
 	// +optional
-	BaseDikiOptions *BaseDikiOptionsConfig
-}
-
-// BaseDikiOptionsConfig holds the base diki options content.
-type BaseDikiOptionsConfig struct {
-	// Data is the raw diki configuration YAML content.
-	Data string
+	BaseDikiConfig *string
 }

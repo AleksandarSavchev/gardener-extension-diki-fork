@@ -21,9 +21,8 @@ extension-diki-leader-election
 {{- define "config" -}}
 apiVersion: config.diki.extensions.gardener.cloud/v1alpha1
 kind: Configuration
-{{- if and .Values.dikiServiceConfig .Values.dikiServiceConfig.baseDikiOptions }}
-baseDikiOptions:
-  data: |
-{{ .Values.dikiServiceConfig.baseDikiOptions.data | indent 4 }}
+{{- if and .Values.dikiServiceConfig .Values.dikiServiceConfig.baseDikiConfig }}
+baseDikiConfig: |
+{{ .Values.dikiServiceConfig.baseDikiConfig | indent 2 }}
 {{- end }}
 {{- end -}}

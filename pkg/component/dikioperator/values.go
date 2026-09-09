@@ -44,7 +44,7 @@ type Values struct {
 	ServerTLSSecretName string
 	// WebhookCABundle is the CA bundle used to verify the webhook server certificate.
 	WebhookCABundle []byte
-	// BaseDikiOptionsData is the raw YAML content for base diki options.
+	// BaseDikiOptionsData is the YAML content for base diki options.
 	// When non-empty, a ConfigMap is created with this content and referenced
 	// in the DikiOperatorConfiguration.
 	BaseDikiOptionsData string

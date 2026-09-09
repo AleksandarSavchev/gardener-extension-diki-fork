@@ -25,21 +25,19 @@ var _ = Describe("ValidateConfiguration", func() {
 		Expect(errs).To(BeEmpty())
 	})
 
-	It("should allow a valid baseDikiOptions", func() {
-		cfg.BaseDikiOptions = &config.BaseDikiOptionsConfig{
-			Data: "providers:\n- id: managedk8s\n",
-		}
+	It("should allow a valid baseDikiConfig", func() {
+		data := "providers:\n- id: managedk8s\n"
+		cfg.BaseDikiConfig = &data
 		errs := ValidateConfiguration(cfg)
 		Expect(errs).To(BeEmpty())
 	})
 
-	It("should reject baseDikiOptions with empty data", func() {
-		cfg.BaseDikiOptions = &config.BaseDikiOptionsConfig{
-			Data: "",
-		}
+	It("should reject baseDikiConfig with empty data", func() {
+		data := ""
+		cfg.BaseDikiConfig = &data
 		errs := ValidateConfiguration(cfg)
 		Expect(errs).To(HaveLen(1))
 		Expect(errs[0].Type).To(Equal(field.ErrorTypeRequired))
-		Expect(errs[0].Field).To(Equal("baseDikiOptions.data"))
+		Expect(errs[0].Field).To(Equal("baseDikiConfig"))
 	})
 })
