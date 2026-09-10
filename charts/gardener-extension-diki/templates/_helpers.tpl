@@ -17,3 +17,12 @@ extension-diki-leader-election
   {{- end }}
   {{- end -}}
 {{- end }}
+
+{{- define "config" -}}
+apiVersion: config.diki.extensions.gardener.cloud/v1alpha1
+kind: Configuration
+{{- if and .Values.dikiServiceConfig .Values.dikiServiceConfig.baseDikiConfig }}
+baseDikiConfig: |
+{{ .Values.dikiServiceConfig.baseDikiConfig | indent 2 }}
+{{- end }}
+{{- end -}}
